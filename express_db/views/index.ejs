@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express with PG</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <div class="container">
+        <ul>
+        <% usernames.forEach(user=> { %>
+            <li> <%=user.username %> 
+                <form action="/delete/<%= user.id %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                
+            </li>
+        <% }) %>
+        </ul>
+       
+    </div>
+    <button><a href="/new">Add a new User</a></button>
+    <form action="/delete" method="POST" style="display:inline;">
+         <button onclick="return confirm('Are you sure you want to delete all users?')">Delete all users</button>
+    </form>
+   
+    <form method="GET" action="/search">
+        <input type="text" name="search" placeholder="Buscar usuario">
+        <button type="submit">Buscar</button>
+    </form>
+   
+    
+</body>
+</html>
