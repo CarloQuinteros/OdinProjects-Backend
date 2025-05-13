@@ -1,0 +1,23 @@
+<html lang="en">
+    <%- include("./partials/header.ejs") %>
+<body>
+    <h1>All messages</h1>
+    <div class="container">
+       
+        <% if (messages.length>0){ %>
+            <% messages.forEach(message =>{ %>
+            <div class="messages">    
+                <h2>User: <%= message.user %> </h2>
+                <p>Message:<%= message.text %></p>
+                <p>Date of post:<%= message.added%></p>
+                
+            </div>
+            <% }) %>    
+        <% }else { %>
+            <p>There is no message yet to display</p>
+        <% } %>
+       
+    </div>
+    <button><a href="/new">Add a new message</a></button>
+</body>
+</html>
