@@ -20,8 +20,55 @@
     .messages{
         position: relative;
         padding: 22px;
-        background: #070318;
-        border: 2px solid #ccc;
-        color: #ccc;
+        border: 2px solid black;
+    }
+
+    .messages:hover{
+      background: #e9e7ee;
+    }
+
+    .create-blog form{
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .create-blog input,
+    .create-blog textarea{
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+    .create-blog label{
+      display: block;
+      margin-top: 24px;
+    }
+    textarea{
+      height: 120px;
+    }
+    .create-blog button{
+      margin-top: 20px;
+      background: crimson;
+      color: white;
+      padding: 6px;
+      border: 0;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    button{
+      margin-top: 20px;
+      background: rgb(22, 119, 3);
+      color: white;
+      padding: 6px;
+      border: 0;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      
+    }
+
+    button a{
+      color: white;
+      text-decoration: none;
     }
    
