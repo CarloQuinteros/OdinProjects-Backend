@@ -7,9 +7,9 @@
         <% if (messages.length>0){ %>
             <% messages.forEach(message =>{ %>
             <div class="messages">    
-                <h2>User: <%= message.user %> </h2>
-                <p>Message:<%= message.text %></p>
-                <p>Date of post:<%= message.added%></p>
+                <h2>User: <%= message.nombre %> </h2>
+                <p>Message: <%= message.mensaje %></p>
+                <p>Date of post: <%= message.fecha_mensaje%></p>
                 
             </div>
             <% }) %>    
