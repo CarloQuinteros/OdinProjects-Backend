@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+<body>
+    <a href="/">Return to Home page</a>
+    <div class="update-item">
+        <form action="/updateItem/<%= items.item_id %>" method="POST">
+            <label for="">Item name</label>
+            <input type="text" name="item_name" id="" required value="<%= items.item_name %>">
+            <label for="">Price</label>
+            <input type="text" name="price" id="" required value="<%= items.price %>">
+            <label for="">Quantity</label>
+            <input type="text" name="quantity" id="" required value="<%= items.quantity %>">
+            <label for="">Category</label>
+            <select name="category_id" id="">
+                <% category.forEach(cat =>{%>
+                <option value="<%= cat.category_id %>"
+                   <%= cat.category_id === items.category_id ? 'selected' : '' %>>
+                   <%= cat.category_name %>
+                </option>
+                <% })%>
+            </select>
+            <button type="submit">Update item</button>
+        </form>
+    </div>
+</body>
+</html>

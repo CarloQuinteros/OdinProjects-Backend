@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+<body>
+    <h1>Minimarket items</h1>
+    <div class="container-btn">
+        <button> <a href="/newItem">Add new item</a></button>
+        <button> <a href="/newCategory">Add new category</a></button>
+        <form method="GET" action="/filter">
+            <input type="text" name="filter" placeholder="Buscar item">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+    <div class="container">
+        
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+             <% items.forEach(item=> { %>
+            <tr>
+                <td><%=item.item_name %></td>
+                <td><%=item.price %></td>
+                <td><%=item.quantity %></td>
+                <td><%=item.category_name %></td>
+                <td>
+                    <form action="/updateItem/<%= item.item_id %>" method="GET" style="display:inline;">
+                    <button type="submit" class="btn-update">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/delete/<%= item.item_id %>" method="POST" style="display:inline;">
+                    <button type="submit" class="btn-delete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>   
+    </div>
+</body>
+</html>

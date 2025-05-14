@@ -1,0 +1,107 @@
+body{
+    padding: 15px;
+}
+
+h1{
+    text-align: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+ table {
+    margin-top: 20px;
+    border: 1px solid;
+  }
+  th{
+    padding: 20px;
+  }
+  td{
+ padding: 20px;
+  }
+  tr{
+   
+    background-color:#2C3845;
+  }
+  tr:hover{
+    background-color:#1e2a36;
+  }
+.create-item,
+.create-category{
+      max-width: 400px;
+      margin: 0 auto;
+    }
+.create-item input,
+.create-category input{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+} 
+.create-item label,
+.create-category label{
+    display: block;
+    margin-top: 24px;
+}   
+
+.create-item select{
+   display: block;
+    margin-top: 24px; 
+}
+.create-item button,
+.create-category button{
+    margin-top: 15px;
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(22, 119, 3);
+}   
+
+.btn-update{
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(3, 111, 119);
+}
+.btn-delete{
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(119, 3, 38);
+}
+
+button {
+    margin-top: 20px;
+    text-decoration: none;
+    background: rgb(14, 49, 146);
+    color: white;
+    padding: 6px;
+    border: 0;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    }
+button a{
+    text-decoration: none;
+    color: white;
+}    
+
+ .container-btn{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+} 

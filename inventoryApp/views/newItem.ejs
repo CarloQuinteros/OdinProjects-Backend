@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+<body>
+    <a href="/">Return to Home page</a>
+    <div class="create-item">
+        <form action="/newItem" method="POST">
+            <label for="">Item</label>
+            <input type="text" name="item_name" id="" required placeholder="Enter a new item">
+            <label for="">Price</label>
+            <input type="text" name="price" id="" required placeholder="Enter a price for the item">
+            <label for="">Quantity</label>
+            <input type="text" name="quantity" id="" required placeholder="Enter a quantity available for the item">
+            <label for="">Category</label>
+            <select name="category_id" id="">
+                <% category.forEach(cat =>{%>
+                <option value="<%= cat.category_id %>">
+                    <%= cat.category_name%>
+                </option>
+                <% })%>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

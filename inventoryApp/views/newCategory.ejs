@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") %>
+<body>
+    <a href="/">Return to Home page</a>
+    <div class="create-category">
+        <form action="/newCategory" method="POST">
+            <label for="">Category</label>
+            <input type="text" name="category_name" id="" required placeholder="Enter a new category">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
