@@ -9,24 +9,26 @@
 <body>
     <nav>
     <% if (user) { %>
-        <p>Welcome, <%= user.member_username %>!</p>
-         <a href="/newmessage" class="button">Create Message</a>
-        <a href="/logout">Logout</a>
+        <h1>Welcome, <%= user.member_username %>!</h1>
+        <button><a href="/newmessage" class="button">Create Message</a></button>
+        <button><a href="/logout">Logout</a></button>
     <% } else { %>
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Log in</a>
+        <button><a href="/signup">Sign Up</a></button>
+        <button><a href="/login">Log in</a></button>
     <% } %>
     </nav>
-    <% if (messages.length>0){ %>
-        <% messages.forEach(m =>{ %>
-    <div class="messages">
-        <h2 class="message <%= user ? '' : 'blurred' %>"><%= m.member_username %></h2>
-        <p><%= m.message %></p>
-        <p><%= m.message_date %></p>
+    <div class="container">
+        <% if (messages.length>0){ %>
+            <% messages.forEach(m =>{ %>
+        <div class="messages">
+            <h2 class="message <%= user ? '' : 'blurred' %>"><%= m.member_username %></h2>
+            <p><%= m.message %></p>
+            <p><%= m.message_date %></p>
 
+        </div>
+            <% }) %>
+        <% } %>
     </div>
-        <% }) %>
-    <% } %>
     
 </body>
 </html>

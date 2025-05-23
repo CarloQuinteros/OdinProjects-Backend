@@ -9,7 +9,7 @@ async function validateId(member_id){
 }
 
 async function getAllMembersMessages(){
-    const {rows} = await pool.query("select a.member_username,title,message,message_date from members a left join messages b on a.member_id =b.user_id;");
+    const {rows} = await pool.query("select a.member_username,title,message,to_char(message_date,'DD-MON-YYYY HH24:MI:SS') as message_date from members a left join messages b on a.member_id =b.user_id;");
     return rows;
 }
 
