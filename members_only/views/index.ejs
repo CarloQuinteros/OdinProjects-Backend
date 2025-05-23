@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello there!</h1>
-    <a href="/signup">Sign Up</a>
+    <nav>
+    <% if (user) { %>
+        <p>Welcome, <%= user.member_username %>!</p>
+         <a href="/newmessage" class="button">Create Message</a>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Log in</a>
+    <% } %>
+    </nav>
+    <% if (messages.length>0){ %>
+        <% messages.forEach(m =>{ %>
+    <div class="messages">
+        <h2 class="message <%= user ? '' : 'blurred' %>"><%= m.member_username %></h2>
+        <p><%= m.message %></p>
+        <p><%= m.message_date %></p>
+
+    </div>
+        <% }) %>
+    <% } %>
+    
 </body>
 </html>

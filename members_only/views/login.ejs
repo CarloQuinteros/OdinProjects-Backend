@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Log in</h1>
+    <% if (messages.error) { %>
+        <%= messages.error %>
+    <% } %>    
+    <div class="container">
+        <form action="/login" method="POST">
+            <label for="member_username">Username</label>
+            <input type="text" name="member_username" placeholder="Enter username" required>
+            <label for="member_password">Password</label>
+            <input type="password" name="member_password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <a href="/signup">Register</a>
+</body>
+</html>

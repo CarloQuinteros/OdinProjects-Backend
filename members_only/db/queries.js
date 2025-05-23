@@ -1,12 +1,15 @@
 const pool = require("./pool");
 
-async function getAllMembers(){
-    const {rows}= await pool.query("Select * from members");
-    return rows;
+async function validateMember(member_username){
+    return  await pool.query("Select member_id,member_username,member_password from members where member_username=$1",[member_username]);
+}
+
+async function validateId(member_id){
+    return  await pool.query("Select member_id,member_username,member_password from members where member_id=$1",[member_id]);
 }
 
 async function getAllMembersMessages(){
-    const {rows} = await pool.query("Select * from messages");
+    const {rows} = await pool.query("select a.member_username,title,message,message_date from members a left join messages b on a.member_id =b.user_id;");
     return rows;
 }
 
@@ -19,10 +22,16 @@ async function insertNewMember(member_name,member_last_name,member_username,memb
     await pool.query('Insert into members (member_name,member_last_name,member_username,member_password) values ($1,$2,$3,$4)',[member_name,member_last_name,member_username,member_password]);
 }
 
+async function insertNewMessage(title,message,user_id){
+    await pool.query('Insert into messages(title,message,user_id) values ($1,$2,$3)',[title,message,user_id]);
+}
+
 
 module.exports={
-    getAllMembers,
     getAllMembersMessages,
     getAllUsername,
-    insertNewMember
+    insertNewMember,
+    validateMember,
+    insertNewMessage,
+    validateId
 }
