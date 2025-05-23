@@ -22,9 +22,7 @@ async function insertCategory(category_name){
 async function insertItem(item_name,price,quantity,category_id){
   await pool.query('Insert into items(item_name,price,quantity,category_id) values ($1,$2,$3,$4)',[item_name,price,quantity,category_id]);
 }
-async function insertUsername(username) {
-  await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
-}
+
 
 async function deleteItem(id){
   await pool.query('DELETE FROM items where item_id=$1',[id]);
@@ -49,7 +47,6 @@ module.exports = {
   getAll,
   insertCategory,
   insertItem,
-  insertUsername,
   deleteItem,
   filterItem,
   updateItem,
