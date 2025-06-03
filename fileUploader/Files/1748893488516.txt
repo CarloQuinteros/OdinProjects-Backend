@@ -1,0 +1,32 @@
+Component Docker.Installer.EnableFeaturesAction failed: No encontrado 
+   en Docker.Installer.InstallWorkflow.<DoHandleD4WPackageAsync>d__29.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en Docker.Installer.InstallWorkflow.<DoProcessAsync>d__24.MoveNext()
+   
+   ---soluction 
+   
+   // open powershell elevated as admin... then
+
+// this is broken
+systeminfo
+
+cd \windows\system32\wbem
+
+mofcomp cimwin32.mof
+
+// this should now print a nice systeminfo
+systeminfo
+
+// now you may want to try installing docker again...
+
+
+
+
+admin@example.com
+admin123
+
+
+
+http://ec2-3-139-238-224.us-east-2.compute.amazonaws.com/

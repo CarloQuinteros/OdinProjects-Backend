@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Create an account</h1>
+   
+    <div class="register">
+        <form action="/signup" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" required >
+            <% if (errors) {
+            const usernameError = errors.find(err => err.path === 'username');
+            if (usernameError) { %>
+                <div class="field-error">
+                    <%= usernameError.msg %>
+                </div>
+            <% }} %>
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder="Enter an email" required>
+            <% if (errors) {
+            const emailError = errors.find(err => err.path === 'email');
+            if (emailError) { %>
+                <div class="field-error">
+                    <%= emailError.msg %>
+                </div>
+            <% }} %>
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <% if (errors) {
+            const passwordErrors = errors.filter(err => err.path === 'password');
+            if (passwordErrors.length > 0) { %>
+                <ul class="field-error">
+                <% passwordErrors.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+                </ul>
+            <% }} %>    
+            <label for="confirmedpassword">Confirm your password</label>
+            <input type="password" name="confirmedpassword">
+            <button type="submit">Register</button>
+            <button><a href="/">Home Page</a></button>
+        </form>
+    </div>
+   
+</body>
+</html>

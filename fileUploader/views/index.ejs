@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+        <nav>
+            <% if (user) { %>
+            <div class="inicio">
+            <h1>
+                <i>Welcome to odin uploader : <%= user.username %>!</i>
+            </h1>
+            
+            <div >
+            <button><a href="/upload">Upload file</a></button>
+            <button><a href="/logout">Log Out</a></button>
+            </div>
+            </div>
+                
+            <% } else { %>
+            <div class="inicio">
+             <h1>
+                <i>Welcome to odin uploader</i>
+            </h1>
+          
+            <div>
+            <button><a href="/signup">Sign Up</a></button>
+            <button><a href="/login">Log in</a></button>
+            </div>  
+              </div>  
+            <% } %>
+           
+            
+        </nav>
+    </header>
+        
+</body>
+</html>

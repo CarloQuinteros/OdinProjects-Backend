@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="upload">
+    <form action="/upload"  method="post" enctype="multipart/form-data">
+        <label for="uploaded_file">Upload your file</label>
+        <input type="file" name="uploaded_file">
+        <input type="submit">
+    </form>
+    </div>
+    <div>
+        <h1>Archivos Subidos</h1>
+
+        <% if (files.length === 0) { %>
+            <p>No hay archivos subidos aún.</p>
+        <% } else { %>
+            <table>
+            <thead>
+                <tr>
+                <th>Usuario</th>   
+                <th>Email</th>
+                <th>Nombre archivo</th>
+                <th>Tamaño (KB)</th>
+                <th>Subido en</th>
+                <th>Carpeta</th>
+                <th>Descargar</th>
+                <th>Path</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% files.forEach(file => { %>
+                <tr>
+                    <td><%= file.user.username %></td>
+                    <td><%= file.user.email %></td>
+                    <td><%= file.name %></td>
+                    <td><%= (file.size / 1024).toFixed(2) %></td>
+                    <td><%= new Date(file.uploadedAt).toLocaleString() %></td>
+                    <td><%= file.folder ? file.folder.name : "Sin carpeta" %></td>
+                    <td><%= file.url %></td>
+                    <td><a href="<%= file.url %>" download>Descargar</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>
