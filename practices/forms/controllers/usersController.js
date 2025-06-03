@@ -44,12 +44,13 @@ exports.usersCreateGet = (req, res) => {
     title: "Create user",
   });
 };
-
+/*
 exports.usersCreatePost = (req, res) => {
   const { firstName, lastName } = req.body;
   usersStorage.addUser({ firstName, lastName });
   res.redirect("/");
 };
+*/
 
 
 exports.usersUpdateGet = (req, res) => {
